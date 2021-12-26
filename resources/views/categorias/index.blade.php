@@ -24,7 +24,7 @@
                     <td class="btn-group">
                         <a class="btn btn-primary" href="{{ route('categorias.show', $categoria) }}">+</a>
                         <a class="btn btn-warning" href="{{ route('categorias.edit', $categoria) }}">Editar</a>
-                        <form action="{{ route('categorias.destroy', $categoria->id) }}">
+                        <form action="{{ route('categorias.destroy', $categoria) }}" method="POST">
                             @method('DELETE')
                             @csrf
                             <input type="submit" value="Eliminar" class="btn btn-danger">
