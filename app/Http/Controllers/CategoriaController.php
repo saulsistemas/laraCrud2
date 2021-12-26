@@ -37,13 +37,14 @@ class CategoriaController extends Controller
  
     public function edit(Categoria $categoria)
     {
-        //
+        return view('categorias.edit',compact('categoria'));
     }
 
   
     public function update(Request $request, Categoria $categoria)
     {
-        //
+        $categoria->update($request->all());
+        return redirect()->route('categorias.index');
     }
 
  

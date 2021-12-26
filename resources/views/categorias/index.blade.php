@@ -22,8 +22,8 @@
                     <td>{{$categoria->nombre}}</td>
                     <td>{{$categoria->created_at}}</td>
                     <td class="btn-group">
-                        <a class="btn btn-primary" href="{{ route('categorias.show', $categoria->id) }}">+</a>
-                        <a class="btn btn-warning" href="{{ route('categorias.edit', $categoria->id) }}">Editar</a>
+                        <a class="btn btn-primary" href="{{ route('categorias.show', $categoria) }}">+</a>
+                        <a class="btn btn-warning" href="{{ route('categorias.edit', $categoria) }}">Editar</a>
                         <form action="{{ route('categorias.destroy', $categoria->id) }}">
                             @method('DELETE')
                             @csrf
