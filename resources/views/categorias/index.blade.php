@@ -3,6 +3,9 @@
 @section('contenido')
     <h1>Listado de Categorías</h1>
     <hr>
+    <div>
+        <a href="{{ route('categorias.create') }}" class="btn btn-primary">Agregar</a>
+    </div>
     <table class="table">
         <thead>
             <td>ID</td>

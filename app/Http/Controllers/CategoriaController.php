@@ -17,13 +17,15 @@ class CategoriaController extends Controller
  
     public function create()
     {
-        //
+        return view('categorias.create');
     }
 
 
     public function store(Request $request)
     {
-        //
+        $categoria = Categoria::create($request->all());
+        return redirect()->route('categorias.index');
+
     }
 
 
