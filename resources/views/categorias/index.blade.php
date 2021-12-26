@@ -2,6 +2,14 @@
 @extends('layouts.plantilla')
 @section('contenido')
     <h1>Listado de Categorías</h1>
+    <div class="d-md-flex justify-content-md-end">
+        <form action="{{ route('categorias.index') }}" method="GET">
+            <div class="btn-group">
+                <input type="text" name="busqueda" class="form-control">
+                <input type="submit" value="enviar" class="btn btn-primary">
+            </div>
+        </form>
+    </div>    
     <hr>
     <div>
         <a href="{{ route('categorias.create') }}" class="btn btn-primary">Agregar</a>
@@ -33,5 +41,10 @@
                 </tr>
             @endforeach
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4"> {{$categorias->appends(['busqueda'=>$busqueda])}} </td>
+            </tr>
+        </tfoot>        
     </table>
 @endsection

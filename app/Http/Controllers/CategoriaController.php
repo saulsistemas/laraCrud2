@@ -8,10 +8,14 @@ use Illuminate\Http\Request;
 class CategoriaController extends Controller
 {
  
-    public function index()
+    public function index(Request $request)
     {
-        $categorias=Categoria::all();
-        return view('categorias.index',compact('categorias'));
+        $busqueda = $request->busqueda;
+        $categorias=Categoria::where('codigo','LIKE','%'.$busqueda.'%')
+        ->orWhere('nombre','LIKE','%'.$busqueda.'%')
+        ->latest('id')
+        ->paginate(2);
+        return view('categorias.index',compact('categorias','busqueda'));
     }
 
  
